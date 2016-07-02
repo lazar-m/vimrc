@@ -1,6 +1,6 @@
 " vimrc file
 " Maintainer: Lazar Milovanović
-" Last change 10. JUN 2016.
+" Last change 3. JUL 2016.
 "---------------------------------------------------------------------------
 set nocompatible
 set backspace=indent,eol,start
@@ -17,9 +17,10 @@ if has("mouse")
 endif
 "-------- GVIM remove toolbars ---------------------------------------------
 if has("gui_running")
-	set guioptions-=T
-	set guioptions-=m
-	set guifont=DejaVu\ Sans\ Mono\ 11
+"	set guioptions-=T
+"	set guioptions-=m
+	set guifont=Terminus\ 12
+	"set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 "-------- Vundle plugin ----------------------------------------------------
 set rtp+=/home/lazar/.vim/bundle/Vundle.vim
@@ -30,11 +31,13 @@ Plugin 'scrooloose/nerdtree'
 "-------- delimitMate ------------------------------------------------------
 Plugin 'Raimondi/delimitMate'
 "-------- YouCompleteMe ----------------------------------------------------
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "-------- gruvbox theme ----------------------------------------------------
 Plugin 'morhetz/gruvbox'
 "---------------------------------------------------------------------------
 call vundle#end()
+"-------- autocomplete conf ------------------------------------------------
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "---------------------------------------------------------------------------
 if has("autocmd")
 	filetype plugin indent on
