@@ -1,13 +1,11 @@
 " vimrc file
-" Maintainer: Lazar Milovanović
-" Last change 7. JUL 2016.
+" Lazar Milovanović
 "---------------------------------------------------------------------------
 set nocompatible
 set backspace=indent,eol,start
 set nobackup
 set autoindent
 set number
-"set noexpandtab
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -20,25 +18,20 @@ if has("mouse")
 endif
 "-------- GVIM remove toolbars ---------------------------------------------
 if has("gui_running")
-"   set guioptions-=T
-"   set guioptions-=m
-    set guifont=Terminus\ 12
-"   set guifont=DejaVu\ Sans\ Mono\ 10
+"    set guioptions-=T
+"    set guioptions-=m
+"    set guifont=Inconsolata\ 12
 endif
 "-------- Vundle plugin ----------------------------------------------------
-set rtp+=/home/lazar/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
 "-------- nerdtree plugin --------------------------------------------------
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 "-------- delimitMate ------------------------------------------------------
-Plugin 'Raimondi/delimitMate'
-"-------- YouCompleteMe ----------------------------------------------------
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Raimondi/delimitMate'
 "---------------------------------------------------------------------------
-call vundle#end()
-"-------- autocomplete conf ------------------------------------------------
-let g:ycm_global_ycm_extra_conf = '/home/lazar/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"call vundle#end()
 "---------------------------------------------------------------------------
 if has("autocmd")
     filetype plugin indent on
@@ -46,14 +39,13 @@ endif
 "---------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
     syntax on
-"   set foldmethod=syntax
     set colorcolumn=80
     colorscheme slate
     set background=dark
     set hlsearch
 endif
 " ------- nerdtree remap ---------------------------------------------------
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 "-------- remaps -----------------------------------------------------------
 map Q gq                     
 "-------- end --------------------------------------------------------------
