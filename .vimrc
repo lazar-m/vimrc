@@ -1,6 +1,6 @@
 " vimrc file
 " Lazar Milovanović
-"---------------------------------------------------------------------------
+"-------- start ------------------------------------------------------------
 set nocompatible
 set backspace=indent,eol,start
 set nobackup
@@ -16,22 +16,12 @@ set encoding=utf-8
 if has("mouse")
     set mouse=a
 endif
-"-------- GVIM remove toolbars ---------------------------------------------
-if has("gui_running")
-"    set guioptions-=T
-"    set guioptions-=m
-"    set guifont=Inconsolata\ 12
-endif
-"-------- Vundle plugin ----------------------------------------------------
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"Plugin 'VundleVim/Vundle.vim'
-"-------- nerdtree plugin --------------------------------------------------
-"Plugin 'scrooloose/nerdtree'
-"-------- delimitMate ------------------------------------------------------
-"Plugin 'Raimondi/delimitMate'
 "---------------------------------------------------------------------------
-"call vundle#end()
+if has("gui_running")
+    set guioptions-=T
+"    set guioptions-=m
+    set guifont=Inconsolata\ 12
+endif
 "---------------------------------------------------------------------------
 if has("autocmd")
     filetype plugin indent on
@@ -44,8 +34,20 @@ if &t_Co > 2 || has("gui_running")
     set background=dark
     set hlsearch
 endif
-" ------- nerdtree remap ---------------------------------------------------
-"map <C-n> :NERDTreeToggle<CR>
+"-------- Plugin manager ---------------------------------------------------
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"-------- Let Vundle manage itself -----------------------------------------
+Plugin 'VundleVim/Vundle.vim'
+"-------- Plugins ----------------------------------------------------------
+Plugin 'scrooloose/nerdtree'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+"---------------------------------------------------------------------------
+call vundle#end()
 "-------- remaps -----------------------------------------------------------
+" ------- nerdtree remap ---------------------------------------------------
+map <C-n> :NERDTreeToggle<CR>
+"---------------------------------------------------------------------------
 map Q gq                     
 "-------- end --------------------------------------------------------------
