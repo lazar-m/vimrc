@@ -24,6 +24,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'airblade/vim-rooter'
 Plugin 'crusoexia/vim-monokai'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "---------------------------------------------------------------------------
 call vundle#end()
 "-------- remaps -----------------------------------------------------------
@@ -53,5 +55,8 @@ endif
 if has("autocmd")
     filetype plugin indent on
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-endif                   
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    let g:airline#extensions#tabline#enabled = 1
+endif 
 "-------- end --------------------------------------------------------------
