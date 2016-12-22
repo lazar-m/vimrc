@@ -12,15 +12,6 @@ set shiftwidth=4
 set clipboard=unnamedplus
 set t_Co=256
 set encoding=utf-8
-
-"---------------------------------------------------------------------------
-if &t_Co > 2 || has("gui_running")
-    syntax on
-    set colorcolumn=80
-    colorscheme slate
-    set background=dark
-    set hlsearch
-endif
 "-------- Plugin manager ---------------------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,6 +23,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'airblade/vim-rooter'
+Plugin 'crusoexia/vim-monokai'
 "---------------------------------------------------------------------------
 call vundle#end()
 "-------- remaps -----------------------------------------------------------
@@ -44,6 +36,14 @@ if has("mouse")
     set mouse=a
 endif
 "---------------------------------------------------------------------------
+if &t_Co > 2 || has("gui_running")
+    syntax on
+    set colorcolumn=80
+    colorscheme monokai
+    set background=dark
+    set hlsearch
+endif
+"---------------------------------------------------------------------------
 if has("gui_running")
     set guioptions-=T
 "    set guioptions-=m
@@ -52,5 +52,6 @@ endif
 "---------------------------------------------------------------------------
 if has("autocmd")
     filetype plugin indent on
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endif                   
 "-------- end --------------------------------------------------------------
