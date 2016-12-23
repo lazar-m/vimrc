@@ -17,12 +17,13 @@ set wildmenu
 set wildmode=longest:full,full
 "-------- Plugin manager ---------------------------------------------------
 call plug#begin('~/.vim/bundle')
-""-------- Plugins ----------------------------------------------------------
+"-------- Plugins ----------------------------------------------------------
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe'
 Plug 'nvie/vim-flake8'
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'crusoexia/vim-monokai'
