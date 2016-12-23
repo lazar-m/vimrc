@@ -21,6 +21,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe'
+Plug 'rust-lang/rust.vim'
 Plug 'nvie/vim-flake8'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
