@@ -15,6 +15,8 @@ set t_Co=256
 set encoding=utf-8
 set wildmenu
 set wildmode=longest:full,full
+"set listchars=eol:¬,tab:»_,trail:~,extends:>,precedes:<,space:·
+"set list
 "-------- Plugin manager ---------------------------------------------------
 call plug#begin('~/.vim/bundle')
 "-------- Plugins ----------------------------------------------------------
@@ -22,7 +24,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rust-lang/rust.vim'
-Plug 'nvie/vim-flake8'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'vim-syntastic/syntastic'
+Plug 'Chiel92/vim-autoformat'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -50,8 +55,14 @@ endif
 "---------------------------------------------------------------------------
 if has("gui_running")
     set guioptions-=T
-"    set guioptions-=m
-    set guifont=Inconsolata\ 12
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=m
+    set guifont=Ricty\ Diminished\ 12
+    map <silent> <F11>
+\    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 endif
 "---------------------------------------------------------------------------
 filetype plugin indent on
@@ -60,4 +71,5 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "-------- end --------------------------------------------------------------
