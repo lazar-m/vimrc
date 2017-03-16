@@ -15,7 +15,7 @@ set t_Co=256
 set encoding=utf-8
 set wildmenu
 set wildmode=longest:full,full
-"set listchars=eol:¬,tab:»_,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:»_,trail:~,extends:>,precedes:<,space:·
 "set list
 "-------- Plugin manager ---------------------------------------------------
 call plug#begin('~/.vim/bundle')
@@ -60,7 +60,7 @@ if has("gui_running")
     set guioptions-=l
     set guioptions-=L
     set guioptions-=m
-    set guifont=Ricty\ Diminished\ 12
+    set guifont=Source\ Code\ Pro\ 12
     map <silent> <F11>
 \    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 endif
@@ -69,7 +69,10 @@ filetype plugin indent on
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"---------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_z = '%3p%% %{g:airline_symbols.linenr}%4l :%#__restore__#%3v'
 set laststatus=2
+"---------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "-------- end --------------------------------------------------------------
