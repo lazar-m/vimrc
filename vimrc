@@ -24,6 +24,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rust-lang/rust.vim'
+Plug 'quabug/vim-gdscript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
@@ -60,7 +61,7 @@ if has("gui_running")
     set guioptions-=l
     set guioptions-=L
     set guioptions-=m
-    set guifont=Source\ Code\ Pro\ 12
+    set guifont=Source\ Code\ Pro\ 11
     map <silent> <F11>
 \    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 endif
@@ -68,7 +69,8 @@ endif
 filetype plugin indent on
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:syntastic_rust_checkers = ['rustc']
 "---------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_z = '%3p%% %{g:airline_symbols.linenr}%4l :%#__restore__#%3v'
